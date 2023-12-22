@@ -1,0 +1,32 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int N;
+    cout << "Введіть розмір масиву N: ";
+    cin >> N;
+
+    vector<int> arr(N);
+    cout << "Введіть елементи масиву:" << endl;
+    for (int i = 0; i < N; ++i) {
+        cout << "Елемент " << i + 1 << ": ";
+        cin >> arr[i];
+    }
+
+    vector<int> result;
+
+    for (int i = 0; i < N - 1; ++i) {
+        if (arr[i] > arr[i + 1]) {
+            result.push_back(i + 1);
+        }
+    }
+
+    cout << "Номери елементів, більших за свого правого сусіда: ";
+    for (int num : result) {
+        cout << num << " ";
+    }
+
+    cout << endl << "Кількість таких елементів: " << result.size() << endl;
+
+    return 0;
