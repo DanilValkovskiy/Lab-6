@@ -1,0 +1,35 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    // Зчитуємо розмір масиву N
+    int N;
+    cout << "Введіть розмір масиву N: ";
+    cin >> N;
+
+    // Створюємо вектор для зберігання елементів масиву
+    vector<int> arr(N);
+
+    // Зчитуємо елементи масиву
+    cout << "Введіть елементи масиву:\n";
+    for (int i = 0; i < N; ++i) {
+        cout << "Елемент " << i + 1 << ": ";
+        cin >> arr[i];
+    }
+
+    // Зчитуємо K і L
+    int K, L;
+    cout << "Введіть K і L (1 ≤ K < L ≤ N): ";
+    cin >> K >> L;
+
+    // Видаляємо елементи з номерами від K до L включно
+    arr.erase(arr.begin() + K - 1, arr.begin() + L);
+
+    // Виводимо розмір та вміст отриманого масиву
+    cout << "Розмір масиву: " << arr.size() << "\nВміст масиву:\n";
+    for (const auto& element : arr) {
+        cout << element << " ";
+    }
+
+    return 0;
